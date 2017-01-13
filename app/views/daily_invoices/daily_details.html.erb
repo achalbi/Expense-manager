@@ -1,0 +1,109 @@
+<%= form_tag('/daily_details') do %>
+<p>
+	Date<br>
+	<%= text_field_tag 'date', nil, :id => 'daily_detail_date' %>
+</p>
+<p>
+    <%= button_tag "Submit"%>
+</p>
+<% end %>
+
+<% @daily_invoices.each do |daily_invoice| %>
+
+<table>
+	<tr>
+		<td>
+			<b>Meal Details</b>
+		</td>
+		<td>
+			
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Restaurant name:
+		</td>
+		<td>
+			<%= daily_invoice.restaurant_name %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Amount:
+		</td>
+		<td>
+			<%= daily_invoice.amount %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Date:
+		</td>
+		<td>
+			<%= daily_invoice.date %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Bill:
+		</td>
+		<td>
+			<%= image_tag(daily_invoice.image.url) %>
+		</td>
+	</tr>
+</table>
+
+<table>
+	<tr>
+		<th>
+			User Name
+		</th>
+		
+		<th>
+			Had Meal
+		</th>
+		<th>
+            Cost Of Meal 
+		</th>
+	</tr>
+	<% lunch_details = LunchDetail.where("daily_invoice_id = ?", daily_invoice.id) %>
+	<% sum = 0%>
+	<% lunch_details.each do |lunch_detail| %>
+	<% sum = sum + lunch_detail.user.cost_of_meal %>
+		<tr>
+			<td>
+				<%= lunch_detail.user.name  %>
+			</td>
+				
+		    <td>
+				<%= lunch_detail.had_lunch %>
+			</td>
+				
+			<td>
+				<%= lunch_detail.user.cost_of_meal %>
+			</td>
+		</tr>
+	<% end %>
+	<tr>
+		<td>
+			
+		</td>
+		<td>
+			<b>Total:</b>
+		</td>
+		<td>
+			<%= sum %>
+		</td>
+	</tr>
+</table>
+
+<% end %>
+
+<script>
+	$('#daily_detail_date').datepicker({
+    dateFormat: "yy-mm-dd"
+  })
+</script>
+
+
+	

@@ -1,0 +1,23 @@
+<%= form_for(@dailyinvoice)do |f| %>
+<p>
+	<%= f.label :Restaurant %><br>
+	<%= f.text_field :restaurant_name %>
+</p>	
+<p>
+	<%= f.label :Amount %><br>
+	<%= f.text_field :amount %>
+</p>
+<p>
+	<%= f.label :Date %><br>
+	<%= f.text_field :date %>
+</p>
+<p>
+	<%= f.label :Bill %><br>
+	<%= f.file_field  :image %>
+</p>
+<p>
+    <%= button_tag "Save"%>
+	<%= button_tag "Delete"%>
+
+</p>
+<% end %>

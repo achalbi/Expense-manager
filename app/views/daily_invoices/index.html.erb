@@ -1,0 +1,45 @@
+<h1> Meal Cost</h1>
+<table>
+	<tr>
+		<th>Restaurant Name</th>
+		<th>Amount</th>
+		<th>Date</th>
+		<th>Image</th>
+		<th>Options</th>
+	</tr>
+	<% @dailyinvoices.each do |dailyinvoice| %>
+	<tr>
+		<td>
+			<%= dailyinvoice.restaurant_name %>
+		</td>
+		<td>
+			<%= dailyinvoice.amount %>
+		</td>
+		<td>
+			<%= dailyinvoice.date %>
+		</td>
+		<td>
+			<%= dailyinvoice.image %>
+		</td>
+		<td>
+			<%= image_tag(dailyinvoice.image.url) %>
+			
+		</td>
+		
+		
+		<td><%= link_to 'Edit', edit_daily_invoice_path(dailyinvoice) %></td>
+		<td><%= link_to 'Destroy', daily_invoice_path(dailyinvoice),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>		
+	</tr>
+	<% end  %>
+</table>
+
+<p>
+	<%= link_to 'New Daily Invoice', new_daily_invoice_path, class: "btn btn-primary"%>
+</p>
+
+
+
+
+

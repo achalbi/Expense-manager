@@ -1,0 +1,3 @@
+
+<%=select_tag 'lunch_detail_id', options_for_select(DailyInvoice.all.collect{ |u| [u.date, u.id]} ),{:include_blank => true,:onchange => "callMe(this.value)"}%>
+
