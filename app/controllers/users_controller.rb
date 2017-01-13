@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def index
+    #Test test
     @users=User.all
   end
   def new
