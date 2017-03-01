@@ -10,14 +10,47 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require simple_calendar
  *= require jquery-ui
- *= require_tree .
- *= require_self
- 
  */
-#daily_invoice_date
-{
-	align: right;
-}
 
+
+
+//@import "bootstrap-sprockets"
+@import "bootstrap"
+@import "bootstrap3-switch"
+@import "bootstrap-multiselect"
+@import "bootstrap3-editable/bootstrap-editable"
+@import "bootstrap-select"
+@import 'bootstrap/glyphicons'
+
+
+
+html
+  position: relative
+  min-height: 100%
+
+body
+  /* Margin bottom by footer height
+  margin-bottom: 60px
+
+.footer
+  position: absolute
+  bottom: 0
+  width: 100%
+  /* Set the fixed height of the footer here
+  height: 60px
+  line-height: 60px
+  /* Vertically center the text there
+  background-color: #f5f5f5
+
+
+
+body > .container
+  padding: 60px 15px 0
+
+.footer > .container
+  padding-right: 15px
+  padding-left: 15px
+
+code
+  font-size: 80%

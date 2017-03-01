@@ -14,4 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery-ui
+
+
+//= require bootstrap
+//= require bootstrap-switch
+//= require bootstrap-select
+//= require bootstrap-multiselect
+//= require bootstrap3-editable/bootstrap-editable
+
 //= require_tree .
+
+

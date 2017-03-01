@@ -1,23 +1,46 @@
+<div class="panel panel-danger">
+  <div class="panel-heading">DailyInvoices</div>
+  <div class="panel-body">
 <%= form_for(@dailyinvoice)do |f| %>
-<p>
-	<%= f.label :Restaurant %><br>
-	<%= f.text_field :restaurant_name %>
-</p>	
-<p>
-	<%= f.label :Amount %><br>
-	<%= f.text_field :amount %>
-</p>
-<p>
-	<%= f.label :Date %><br>
-	<%= f.text_field :date %>
-</p>
-<p>
-	<%= f.label :Bill %><br>
-	<%= f.file_field  :image %>
-</p>
-<p>
-    <%= button_tag "Save"%>
-	<%= button_tag "Delete"%>
 
-</p>
-<% end %>
+	<%if @dailyinvoice.errors.any? %>
+	<div id="error_explaination">
+		<h2><%= pluralize(@dailyinvoice.errors.count,"error") %> prohibited this user from being saved:</h2>
+		<ul>
+			<% @dailyinvoice.errors.full_messages.each do |message| %>
+			<li><%= message %>
+			</li>
+			<% end %>
+		</ul>	
+	</div>
+	<% end %>
+	 <div class="form-group">
+     <%= f.label :Restaurant_Name %>
+	 <%= f.text_field  :restaurant_name ,:class => 'form-control' %>
+    </div>
+	<div class="form-group">
+    <%= f.label :Amount %>
+	  <%= f.text_field :amount ,:class => 'form-control' %>
+    </div>
+	  <p>
+    <%= f.label :Date %>
+	  <%= f.text_field :date  %>
+    </p>
+            <div class="form-group">
+    <%= f.label :Bill %>
+	  <%= f.file_field :image ,:class => 'form-control' %>
+            </div>
+
+
+
+	   <button type="save" class="btn btn-success btn-cons">Save</button>
+      <%= link_to 'Cancel', daily_invoices_path, :class => "btn btn-danger btn-cons" %>
+
+	   <% end %>
+  </div>
+</div>
+  <script>
+      $('#daily_detail_date').datepicker({
+          dateFormat: "yy-mm-dd"
+      })
+  </script>

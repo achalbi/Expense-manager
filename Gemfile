@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'https://rubygems.org' 
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -7,16 +7,26 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 #gem 'sqlite3'
 
 gem 'mysql2'
-
-
-gem "simple_calendar", "~> 2.0"
+# gem 'bootstrap'
 
 gem "paperclip"
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'sass-rails', '>= 3.2'
+gem "bootstrap_form"
+gem "bootstrap-switch-rails"
+gem "bootstrap-select-rails"
+gem "bootstrap-multiselect-rails"
+gem "bootstrap-x-editable-rails"
+gem "bootstrap-glyphicons"
+
+gem 'google_drive'
+
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
