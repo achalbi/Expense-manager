@@ -18,17 +18,25 @@
     <%= f.label :Comment %>
       <%= f.text_area  :comment ,:class => 'form-control',:id => 'comment' %>
       </div>
-    <p>
+    <div class="form-group">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-3" >
+
     <%= f.label :Date %>
-      <%= f.text_field  :date %>
-    </p>
+      <%= f.text_field  :date ,:class => 'form-control',:id => 'user_payment_date'%>
+    </div>
+        </div>
+      </div>
+    </div>
+
       <button type="Pay" class="btn btn-success btn-cons">Pay</button>
       <%= link_to 'Cancel', user_payments_path, :class => "btn btn-danger btn-cons" %>
   <% end %>
   </div>
 </div>
-  <script>
-      $('#daily_detail_date').datepicker({
-          dateFormat: "yy-mm-dd"
-      })
-  </script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#user_payment_date").datepicker({dateFormat: "yy-mm-dd"});
+    });
+</script>
