@@ -6,14 +6,15 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 
-gem 'mysql2'
+#gem 'mysql2'
 # gem 'bootstrap'
+gem 'pg'
 
 gem "paperclip"
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'sass-rails', '>= 3.2'
+gem 'sass-rails'
 gem "bootstrap_form"
 gem "bootstrap-switch-rails"
 gem "bootstrap-select-rails"
@@ -36,6 +37,8 @@ gem 'coffee-rails', '~> 4.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
+gem 'simple_calendar'
 gem 'jquery-ui-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'

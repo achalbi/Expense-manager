@@ -10,18 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161104174600) do
+ActiveRecord::Schema.define(version: 20170224040910) do
 
-  create_table "bill_photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-  end
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
-  create_table "daily_invoices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "daily_invoices", force: :cascade do |t|
     t.string   "restaurant_name"
     t.date     "date"
     t.integer  "amount"
@@ -32,11 +26,10 @@ ActiveRecord::Schema.define(version: 20161104174600) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "lunch_detail_id"
-    t.string   "integer"
+    t.integer  "lunch_detail_id"
   end
 
-  create_table "lunch_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "lunch_details", force: :cascade do |t|
     t.date     "date"
     t.integer  "user_id"
     t.integer  "daily_invoice_id"
@@ -45,13 +38,28 @@ ActiveRecord::Schema.define(version: 20161104174600) do
     t.datetime "updated_at",       null: false
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "payment_modes", force: :cascade do |t|
+    t.string   "payment_gateway"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "user_payments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.float    "amount_paid"
+    t.string   "comment"
+    t.date     "date"
+    t.integer  "payment_mode_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.integer  "cost_of_meal"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.string   "integer"
   end
 
 end
